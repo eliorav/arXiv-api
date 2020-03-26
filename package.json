@@ -13,7 +13,9 @@
     "url": "git+https://github.com/eliorav/arXiv-api.git"
   },
   "keywords": [
-    "arxiv"
+    "arxiv",
+    "node",
+    "javascript"
   ],
   "author": "elior avraham",
   "license": "ISC",
