@@ -1,2 +1,5 @@
-const axios = require('axios');
+const {search} = require('./src');
 
+module.exports = {
+	search,
+};
