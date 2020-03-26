@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest -u ./src/index.test.js",
+    "test:coverage": "jest ./src/index.test.js --coverage",
     "lint": "eslint '**/*.js' --quiet"
   },
   "repository": {

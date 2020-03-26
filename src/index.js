@@ -38,7 +38,7 @@ function parseTag({name, prefix = PREFIXES.ALL}) {
 		throw new Error('you must specify tag name');
 	}
 	if (!Object.values(PREFIXES).includes(prefix)) {
-		return new Error(`unsupported prefix: ${prefix}`);
+		throw new Error(`unsupported prefix: ${prefix}`);
 	}
 	return `${prefix}:${name}`;
 }

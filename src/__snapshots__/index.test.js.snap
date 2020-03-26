@@ -11,7 +11,9 @@ Array [
         "AUTHOR2",
       ],
     ],
-    "categories": Array [],
+    "categories": Array [
+      "CATEGORY",
+    ],
     "id": "PAPER_ID",
     "links": Array [
       Object {
@@ -29,16 +31,16 @@ Array [
 ]
 `;
 
-exports[`arXiv search tests should throw error - exclude tags is not an array 1`] = `[Error: query param must be an array]`;
+exports[`arXiv search tests should throw error - exclude tags is not an array 1`] = `[Error: include and exclude must be arrays]`;
 
-exports[`arXiv search tests should throw error - include tags empty 1`] = `[Error: query param must be an array]`;
+exports[`arXiv search tests should throw error - include tags empty 1`] = `[Error: include is a mandatory field]`;
 
-exports[`arXiv search tests should throw error - include tags is not an array 1`] = `[Error: query param must be an array]`;
+exports[`arXiv search tests should throw error - include tags is not an array 1`] = `[Error: include and exclude must be arrays]`;
 
 exports[`arXiv search tests should throw error - searchQueryParams is not an array 1`] = `[Error: query param must be an array]`;
 
-exports[`arXiv search tests should throw error - tag name is empty 1`] = `[Error: query param must be an array]`;
+exports[`arXiv search tests should throw error - tag name is empty 1`] = `[Error: you must specify tag name]`;
 
-exports[`arXiv search tests should throw error - tag name is not string 1`] = `[Error: query param must be an array]`;
+exports[`arXiv search tests should throw error - tag name is not string 1`] = `[Error: you must specify tag name]`;
 
-exports[`arXiv search tests should throw error - unsupported tag prefix 1`] = `[Error: query param must be an array]`;
+exports[`arXiv search tests should throw error - unsupported tag prefix 1`] = `[Error: unsupported prefix: pre]`;

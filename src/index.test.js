@@ -9,6 +9,7 @@ const mockResponse = {
 				summary: ['SUMMARY'],
 				author: [{name: ['AUTHOR1']}, {name: ['AUTHOR2']}],
 				link: [{$: {title: 'TITLE', href: 'URL', rel: 'REL', type: 'TYPE'}}],
+				category: [{$: 'CATEGORY'}],
 			},
 		],
 	},
@@ -58,55 +59,67 @@ describe('arXiv search tests', () => {
 	it('should throw error - include tags is not an array', async () => {
 		await expect(
 			search({
-				searchQueryParams: {
-					include: 'SOME_VALUE',
-				},
+				searchQueryParams: [
+					{
+						include: 'SOME_VALUE',
+					},
+				],
 			})
 		).rejects.toMatchSnapshot();
 	});
 	it('should throw error - exclude tags is not an array', async () => {
 		await expect(
 			search({
-				searchQueryParams: {
-					include: [{name: 'GAN'}],
-					exclude: 'SOME_VALUE',
-				},
+				searchQueryParams: [
+					{
+						include: [{name: 'GAN'}],
+						exclude: 'SOME_VALUE',
+					},
+				],
 			})
 		).rejects.toMatchSnapshot();
 	});
 	it('should throw error - include tags empty', async () => {
 		await expect(
 			search({
-				searchQueryParams: {
-					include: [],
-				},
+				searchQueryParams: [
+					{
+						include: [],
+					},
+				],
 			})
 		).rejects.toMatchSnapshot();
 	});
 	it('should throw error - tag name is empty', async () => {
 		await expect(
 			search({
-				searchQueryParams: {
-					include: [{name: ''}],
-				},
+				searchQueryParams: [
+					{
+						include: [{name: ''}],
+					},
+				],
 			})
 		).rejects.toMatchSnapshot();
 	});
 	it('should throw error - tag name is not string', async () => {
 		await expect(
 			search({
-				searchQueryParams: {
-					include: [{name: 123}],
-				},
+				searchQueryParams: [
+					{
+						include: [{name: 123}],
+					},
+				],
 			})
 		).rejects.toMatchSnapshot();
 	});
 	it('should throw error - unsupported tag prefix', async () => {
 		await expect(
 			search({
-				searchQueryParams: {
-					include: [{name: 'GAN', prefix: 'pre'}],
-				},
+				searchQueryParams: [
+					{
+						include: [{name: 'GAN', prefix: 'pre'}],
+					},
+				],
 			})
 		).rejects.toMatchSnapshot();
 	});
