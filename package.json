@@ -4,7 +4,8 @@
   "description": "node wrapper for arXiv api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -u ./src/index.test.js",
+    "lint": "eslint '**/*.js' --quiet"
   },
   "repository": {
     "type": "git",
@@ -20,11 +21,18 @@
   },
   "homepage": "https://github.com/eliorav/arXiv-api#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "0.19.2",
+    "lodash": "4.17.15",
+    "xml2js": "0.4.23"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-plugin-node": "^11.0.0"
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-jest": "23.8.2",
+    "eslint-plugin-node": "11.0.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "jest": "25.2.2",
+    "prettier": "1.16.4"
   },
   "engines": {
     "node": ">=8.10.0"
