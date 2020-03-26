@@ -1,0 +1,32 @@
+{
+  "name": "arxiv-api",
+  "version": "1.0.0",
+  "description": "node wrapper for arXiv api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliorav/arXiv-api.git"
+  },
+  "keywords": [
+    "arxiv"
+  ],
+  "author": "elior avraham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eliorav/arXiv-api/issues"
+  },
+  "homepage": "https://github.com/eliorav/arXiv-api#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-node": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=8.10.0"
+  }
+}
