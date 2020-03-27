@@ -1,3 +1,5 @@
+const {PREFIXES, SORT_BY, SORT_ORDER} = require('./constants');
+
 const mockResponse = {
 	feed: {
 		entry: [
@@ -32,7 +34,7 @@ describe('arXiv search tests', () => {
 	beforeEach(() => {
 		mockAxiosGet.mockClear();
 	});
-	it('should return results as expected', async () => {
+	it('should return results as expected - default values', async () => {
 		const results = await search({
 			searchQueryParams: [
 				{
@@ -48,6 +50,70 @@ describe('arXiv search tests', () => {
 			'http://export.arxiv.org/api/query?search_query=all:RNN+AND+all:Deep learning+ANDNOT+all:LSTM+OR+all:GAN&start=0&max_results=10'
 		);
 		expect(results).toMatchSnapshot();
+	});
+	it('should return results as expected', async () => {
+		const results = await search({
+			searchQueryParams: [
+				{
+					include: [{name: 'RNN'}, {name: 'Deep learning'}],
+					exclude: [{name: 'LSTM'}],
+				},
+				{
+					include: [{name: 'GAN', prefix: PREFIXES.CAT}],
+				},
+			],
+			start: 10,
+			maxResults: 50,
+		});
+		expect(mockAxiosGet).toHaveBeenCalledWith(
+			'http://export.arxiv.org/api/query?search_query=all:RNN+AND+all:Deep learning+ANDNOT+all:LSTM+OR+cat:GAN&start=10&max_results=50'
+		);
+		expect(results).toMatchSnapshot();
+	});
+	it('should return results as expected - with sortBy and sortOrder', async () => {
+		const results = await search({
+			searchQueryParams: [
+				{
+					include: [{name: 'RNN'}, {name: 'Deep learning'}],
+					exclude: [{name: 'LSTM'}],
+				},
+				{
+					include: [{name: 'GAN'}],
+				},
+			],
+			start: 10,
+			maxResults: 50,
+			sortBy: SORT_BY.RELEVANCE,
+			sortOrder: SORT_ORDER.ASCENDING,
+		});
+		expect(mockAxiosGet).toHaveBeenCalledWith(
+			'http://export.arxiv.org/api/query?search_query=all:RNN+AND+all:Deep learning+ANDNOT+all:LSTM+OR+all:GAN&start=10&max_results=50&sortBy=relevance&sortOrder=ascending'
+		);
+		expect(results).toMatchSnapshot();
+	});
+	it('should throw error - unsupported sortBy', async () => {
+		await expect(
+			search({
+				searchQueryParams: [
+					{
+						include: [{name: 'GAN'}],
+					},
+				],
+				sortBy: 'SORT_BY',
+			})
+		).rejects.toMatchSnapshot();
+	});
+	it('should throw error - unsupported sortOrder', async () => {
+		await expect(
+			search({
+				searchQueryParams: [
+					{
+						include: [{name: 'GAN'}],
+					},
+				],
+				sortOrder: 'SORT_ORDER',
+			})
+		).rejects.toMatchSnapshot();
 	});
 	it('should throw error - searchQueryParams is not an array', async () => {
 		await expect(

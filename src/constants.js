@@ -15,7 +15,20 @@ const SEPARATORS = {
 	ANDNOT: '+ANDNOT+',
 };
 
+const SORT_BY = {
+	RELEVANCE: 'relevance',
+	LAST_UPDATED_DATE: 'lastUpdatedDate',
+	SUBMITTED_DATE: 'submittedDate',
+};
+
+const SORT_ORDER = {
+	ASCENDING: 'ascending',
+	DESCENDING: 'descending',
+};
+
 module.exports = {
 	PREFIXES,
 	SEPARATORS,
+	SORT_BY,
+	SORT_ORDER,
 };
