@@ -2,8 +2,11 @@ const {PREFIXES, SORT_BY, SORT_ORDER} = require('./constants');
 
 const mockResponse = {
 	feed: {
+		link: [{$: {href: 'LINK'}}],
 		updated: ['2021-05-16T00:00:00-04:00'],
-		'opensearch:totalResults': [{_: '1'}],
+		'opensearch:totalResults': [{_: '2'}],
+		'opensearch:startIndex': [{_: '0'}],
+		'opensearch:itemsPerPage': [{_: '1'}],
 		entry: [
 			{
 				id: ['PAPER_ID'],

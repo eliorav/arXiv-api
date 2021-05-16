@@ -123,7 +123,10 @@ Object {
       "updated": "UPDATED",
     },
   ],
-  "totalResults": 1,
+  "itemsPerPage": 1,
+  "link": "LINK",
+  "startIndex": 0,
+  "totalResults": 2,
   "updated": "2021-05-16T00:00:00-04:00",
 }
 `;

@@ -114,9 +114,19 @@ async function searchWithMeta({searchQueryParams, sortBy, sortOrder, start = 0, 
 async function parseResponseData(convertableToString) {
 	const parsedData = await parseStringPromisified(convertableToString);
 	const entries = _.get(parsedData, 'feed.entry', []).map(parseArxivObject);
+	const link = decodeURIComponent(_.get(parsedData, 'feed.link[0].$.href'));
 	const totalResults = +_.get(parsedData, 'feed.opensearch:totalResults[0]_');
+	const startIndex = +_.get(parsedData, 'feed.opensearch:startIndex[0]_');
+	const itemsPerPage = +_.get(parsedData, 'feed.opensearch:itemsPerPage[0]_');
 	const updated = _.get(parsedData, 'feed.updated[0]');
-	return {entries, totalResults, updated};
+	return {
+		link,
+		totalResults,
+		startIndex,
+		itemsPerPage,
+		updated,
+		entries,
+	};
 }
 
 module.exports = {
