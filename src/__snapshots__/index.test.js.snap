@@ -123,7 +123,7 @@ Object {
       "updated": "UPDATED",
     },
   ],
-  "totalResults": "1",
+  "totalResults": 1,
   "updated": "2021-05-16T00:00:00-04:00",
 }
 `;
