@@ -18,6 +18,9 @@
     "javascript"
   ],
   "author": "elior avraham",
+  "contributors": [
+    "Beeno Tung <aabbcc1241@yahoo.com.hk> (https://beeno-tung.surge.sh)"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/eliorav/arXiv-api/issues"
