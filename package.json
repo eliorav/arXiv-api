@@ -4,8 +4,8 @@
   "description": "node wrapper for arXiv api",
   "main": "index.js",
   "scripts": {
-    "test": "jest -u ./src/index.test.js",
-    "test:coverage": "jest ./src/index.test.js --coverage",
+    "test": "jest -u ./src/index.test.js ./test/sample.test.js",
+    "test:coverage": "jest ./src/index.test.js ./test/sample.test.js --coverage",
     "lint": "eslint '**/*.js' --quiet"
   },
   "repository": {
