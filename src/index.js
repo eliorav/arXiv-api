@@ -71,7 +71,7 @@ function parseTags({include, exclude = []}) {
  * @param {string} sortOrder - can be either "ascending" or "descending".
  * @param {number} start - the index of the first returned result.
  * @param {number} maxResults - the number of results returned by the query.
- * @returns {Promise}
+ * @returns {Promise<Array>}
  */
 async function search({searchQueryParams, sortBy, sortOrder, start = 0, maxResults = 10}) {
 	const result = await searchWithMeta({searchQueryParams, sortBy, sortOrder, start, maxResults});
@@ -87,7 +87,7 @@ async function search({searchQueryParams, sortBy, sortOrder, start = 0, maxResul
  * @param {string} sortOrder - can be either "ascending" or "descending".
  * @param {number} start - the index of the first returned result.
  * @param {number} maxResults - the number of results returned by the query.
- * @returns {Promise<{entries, totalResults, updated}>}
+ * @returns {Promise<{link, totalResults, startIndex, itemsPerPage, updated, entries}>}
  */
 async function searchWithMeta({searchQueryParams, sortBy, sortOrder, start = 0, maxResults = 10}) {
 	if (!Array.isArray(searchQueryParams)) {
@@ -109,7 +109,7 @@ async function searchWithMeta({searchQueryParams, sortBy, sortOrder, start = 0, 
  * Parse data from arXiv API
  * @async
  * @param {{toString(): string}} convertableToString - can be string or Buffer
- * @returns {Promise<{entries, totalResults, updated}>}
+ * @returns {Promise<{link, totalResults, startIndex, itemsPerPage, updated, entries}>}
  */
 async function parseResponseData(convertableToString) {
 	const parsedData = await parseStringPromisified(convertableToString);
