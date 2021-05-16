@@ -101,7 +101,18 @@ async function searchWithMeta({searchQueryParams, sortBy, sortOrder, start = 0, 
 	}
 	const searchQuery = searchQueryParams.map(parseTags).join(SEPARATORS.OR);
 	const response = await axios.get(get_arxiv_url({searchQuery, sortBy, sortOrder, start, maxResults}));
-	const parsedData = await parseStringPromisified(response.data);
+	const result = await module.exports.parseResponseData(response.data);
+	return result;
+}
+
+/**
+ * Parse data from arXiv API
+ * @async
+ * @param {{toString(): string}} convertableToString - can be string or Buffer
+ * @returns {Promise<{entries, totalResults, updated}>}
+ */
+async function parseResponseData(convertableToString) {
+	const parsedData = await parseStringPromisified(convertableToString);
 	const entries = _.get(parsedData, 'feed.entry', []).map(parseArxivObject);
 	const totalResults = _.get(parsedData, 'feed.opensearch:totalResults[0]_');
 	const updated = _.get(parsedData, 'feed.updated[0]');
@@ -111,4 +122,5 @@ async function searchWithMeta({searchQueryParams, sortBy, sortOrder, start = 0, 
 module.exports = {
 	search,
 	searchWithMeta,
+	parseResponseData,
 };

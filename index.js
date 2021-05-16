@@ -1,6 +1,1 @@
-const {search, searchWithMeta} = require('./src');
-
-module.exports = {
-	search,
-	searchWithMeta,
-};
+module.exports = require('./src');
