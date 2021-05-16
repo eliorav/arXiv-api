@@ -2,6 +2,8 @@ const {PREFIXES, SORT_BY, SORT_ORDER} = require('./constants');
 
 const mockResponse = {
 	feed: {
+		updated: ['2021-05-16T00:00:00-04:00'],
+		'opensearch:totalResults': [{_: '1'}],
 		entry: [
 			{
 				id: ['PAPER_ID'],
@@ -28,7 +30,7 @@ jest.mock('util', () => ({
 	promisify: jest.fn(() => mockXmlPromisify),
 }));
 
-const {search} = require('./index.js');
+const {search, searchWithMeta} = require('./index.js');
 
 describe('arXiv search tests', () => {
 	beforeEach(() => {
@@ -88,6 +90,21 @@ describe('arXiv search tests', () => {
 		});
 		expect(mockAxiosGet).toHaveBeenCalledWith(
 			'http://export.arxiv.org/api/query?search_query=all:RNN+AND+all:Deep learning+ANDNOT+all:LSTM+OR+all:GAN&start=10&max_results=50&sortBy=relevance&sortOrder=ascending'
+		);
+		expect(results).toMatchSnapshot();
+	});
+	it('should return results with meta data as expected', async () => {
+		const results = await searchWithMeta({
+			searchQueryParams: [
+				{
+					include: [{name: 'GAN'}],
+				},
+			],
+			start: 10,
+			maxResults: 50,
+		});
+		expect(mockAxiosGet).toHaveBeenCalledWith(
+			'http://export.arxiv.org/api/query?search_query=all:GAN&start=10&max_results=50'
 		);
 		expect(results).toMatchSnapshot();
 	});

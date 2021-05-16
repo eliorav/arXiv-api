@@ -93,6 +93,41 @@ Array [
 ]
 `;
 
+exports[`arXiv search tests should return results with meta data as expected 1`] = `
+Object {
+  "entries": Array [
+    Object {
+      "authors": Array [
+        Array [
+          "AUTHOR1",
+        ],
+        Array [
+          "AUTHOR2",
+        ],
+      ],
+      "categories": Array [
+        "CATEGORY",
+      ],
+      "id": "PAPER_ID",
+      "links": Array [
+        Object {
+          "href": "URL",
+          "rel": "REL",
+          "title": "TITLE",
+          "type": "TYPE",
+        },
+      ],
+      "published": "PUBLISHED",
+      "summary": "SUMMARY",
+      "title": "TITLE",
+      "updated": "UPDATED",
+    },
+  ],
+  "totalResults": "1",
+  "updated": "2021-05-16T00:00:00-04:00",
+}
+`;
+
 exports[`arXiv search tests should throw error - exclude tags is not an array 1`] = `[Error: include and exclude must be arrays]`;
 
 exports[`arXiv search tests should throw error - include tags empty 1`] = `[Error: include is a mandatory field]`;
