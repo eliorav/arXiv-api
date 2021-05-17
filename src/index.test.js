@@ -2,6 +2,11 @@ const {PREFIXES, SORT_BY, SORT_ORDER} = require('./constants');
 
 const mockResponse = {
 	feed: {
+		link: [{$: {href: 'LINK'}}],
+		updated: ['2021-05-16T00:00:00-04:00'],
+		'opensearch:totalResults': [{_: '2'}],
+		'opensearch:startIndex': [{_: '0'}],
+		'opensearch:itemsPerPage': [{_: '1'}],
 		entry: [
 			{
 				id: ['PAPER_ID'],
@@ -28,7 +33,7 @@ jest.mock('util', () => ({
 	promisify: jest.fn(() => mockXmlPromisify),
 }));
 
-const {search} = require('./index.js');
+const {search, searchWithMeta, parseResponseData} = require('./index.js');
 
 describe('arXiv search tests', () => {
 	beforeEach(() => {
@@ -90,6 +95,43 @@ describe('arXiv search tests', () => {
 			'http://export.arxiv.org/api/query?search_query=all:RNN+AND+all:Deep learning+ANDNOT+all:LSTM+OR+all:GAN&start=10&max_results=50&sortBy=relevance&sortOrder=ascending'
 		);
 		expect(results).toMatchSnapshot();
+	});
+	it('should return results with meta data as expected', async () => {
+		const results = await searchWithMeta({
+			searchQueryParams: [
+				{
+					include: [{name: 'GAN'}],
+				},
+			],
+			start: 10,
+			maxResults: 50,
+		});
+		expect(mockAxiosGet).toHaveBeenCalledWith(
+			'http://export.arxiv.org/api/query?search_query=all:GAN&start=10&max_results=50'
+		);
+		expect(results).toMatchSnapshot();
+	});
+	it('should export response parser', () => {
+		expect(parseResponseData).toBeDefined();
+		expect(typeof parseResponseData).toBe('function');
+	});
+	it('should use response parser', async () => {
+		const src = require('./index');
+		const original = src.parseResponseData;
+		const spy = jest.fn(original);
+		src.parseResponseData = spy;
+		try {
+			await src.search({
+				searchQueryParams: [
+					{
+						include: [{name: 'GAN'}],
+					},
+				],
+			});
+			expect(spy).toHaveBeenCalledWith('XML');
+		} finally {
+			src.parseResponseData = original;
+		}
 	});
 	it('should throw error - unsupported sortBy', async () => {
 		await expect(

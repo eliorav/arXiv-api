@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test response data parser with sample xml file should not throw errors 1`] = `
+Object {
+  "entries": Array [
+    Object {
+      "authors": Array [
+        Array [
+          "sample author name",
+        ],
+      ],
+      "categories": Array [
+        Object {
+          "scheme": "http://arxiv.org/schemas/atom",
+          "term": "cs.CV",
+        },
+        Object {
+          "scheme": "http://arxiv.org/schemas/atom",
+          "term": "cs.LG",
+        },
+      ],
+      "id": "http://arxiv.org/abs/sample_code",
+      "links": Array [
+        Object {
+          "href": "http://arxiv.org/abs/sample_code",
+          "rel": "alternate",
+          "type": "text/html",
+        },
+        Object {
+          "href": "http://arxiv.org/pdf/sample_code",
+          "rel": "related",
+          "title": "pdf",
+          "type": "application/pdf",
+        },
+      ],
+      "published": "2019-04-01T12:19:28Z",
+      "summary": "sample summary",
+      "title": "sample title",
+      "updated": "2019-04-01T12:19:28Z",
+    },
+  ],
+  "itemsPerPage": 1,
+  "link": "http://arxiv.org/api/query?search_query=all:GAN&id_list=&start=0&max_results=1",
+  "startIndex": 0,
+  "totalResults": 6123,
+  "updated": "2021-05-16T00:00:00-04:00",
+}
+`;

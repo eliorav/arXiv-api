@@ -1,5 +1,1 @@
-const {search} = require('./src');
-
-module.exports = {
-	search,
-};
+module.exports = require('./src');
