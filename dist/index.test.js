@@ -27,6 +27,7 @@ globals_1.jest.mock('xml2js');
 globals_1.jest.mock('util', () => ({
     promisify: globals_1.jest.fn(() => mockXmlPromisify),
 }));
+// import later for mock
 const index_1 = require("./index");
 (0, globals_1.describe)('arXiv search tests', () => {
     (0, globals_1.beforeEach)(() => {
