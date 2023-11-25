@@ -7,25 +7,25 @@ import { parseString } from 'xml2js';
 const parseStringPromisified = util.promisify(parseString);
 type ArxivQueryType = {
   searchQuery: string;
-  sortBy: string;
-  sortOrder: string;
-  start: number;
-  maxResults: number;
+  sortBy?: string;
+  sortOrder?: string;
+  start?: number;
+  maxResults?: number;
 };
 type TagData = {
   name: string;
-  prefix: string;
+  prefix?: string;
 }
 type SearchQueryParams = {
   include: TagData[];
-  exclude: TagData[];
+  exclude?: TagData[];
 };
 type SearchApiType = {
   searchQueryParams: SearchQueryParams[];
-  sortBy: string;
-  sortOrder: string;
-  start: number;
-  maxResults: number;
+  sortBy?: string;
+  sortOrder?: string;
+  start?: number;
+  maxResults?: number;
 }
   
 
