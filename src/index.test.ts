@@ -1,5 +1,4 @@
 import { PREFIXES, SORT_BY, SORT_ORDER } from './constants';
-import { search } from './index';
 import { describe, it, expect, jest, beforeEach } from '@jest/globals';
 
 
@@ -23,6 +22,7 @@ const mockResponse = {
 const mockAxiosGet = jest.fn(() => Promise.resolve({data: 'XML'}));
 const mockXmlPromisify = jest.fn(() => Promise.resolve(mockResponse));
 
+
 jest.mock('axios', () => ({
 	get: mockAxiosGet,
 }));
@@ -31,6 +31,8 @@ jest.mock('util', () => ({
 	promisify: jest.fn(() => mockXmlPromisify),
 }));
 
+// import later for mock
+import { search } from './index';
 
 describe('arXiv search tests', () => {
 	beforeEach(() => {

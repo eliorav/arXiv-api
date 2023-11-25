@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("./constants");
-const index_1 = require("./index");
 const globals_1 = require("@jest/globals");
 const mockResponse = {
     feed: {
@@ -28,6 +27,7 @@ globals_1.jest.mock('xml2js');
 globals_1.jest.mock('util', () => ({
     promisify: globals_1.jest.fn(() => mockXmlPromisify),
 }));
+const index_1 = require("./index");
 (0, globals_1.describe)('arXiv search tests', () => {
     (0, globals_1.beforeEach)(() => {
         mockAxiosGet.mockClear();
