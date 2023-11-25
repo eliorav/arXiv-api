@@ -2,7 +2,7 @@
   "name": "arxiv-api",
   "version": "1.1.0",
   "description": "node wrapper for arXiv api",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest -u ./dist/index.test.js",
     "test:coverage": "jest ./dist/index.test.js --coverage",
