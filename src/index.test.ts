@@ -1,4 +1,6 @@
-const {PREFIXES, SORT_BY, SORT_ORDER} = require('./constants');
+import { PREFIXES, SORT_BY, SORT_ORDER } from './constants';
+import { describe, it, expect, jest, beforeEach } from '@jest/globals';
+
 
 const mockResponse = {
 	feed: {
@@ -20,6 +22,7 @@ const mockResponse = {
 const mockAxiosGet = jest.fn(() => Promise.resolve({data: 'XML'}));
 const mockXmlPromisify = jest.fn(() => Promise.resolve(mockResponse));
 
+
 jest.mock('axios', () => ({
 	get: mockAxiosGet,
 }));
@@ -28,7 +31,8 @@ jest.mock('util', () => ({
 	promisify: jest.fn(() => mockXmlPromisify),
 }));
 
-const {search} = require('./index.js');
+// import later for mock
+import search from './index';
 
 describe('arXiv search tests', () => {
 	beforeEach(() => {
@@ -118,7 +122,7 @@ describe('arXiv search tests', () => {
 	it('should throw error - searchQueryParams is not an array', async () => {
 		await expect(
 			search({
-				searchQueryParams: 'PARAMS',
+				searchQueryParams: 'PARAMS' as any,
 			})
 		).rejects.toMatchSnapshot();
 	});
@@ -127,7 +131,7 @@ describe('arXiv search tests', () => {
 			search({
 				searchQueryParams: [
 					{
-						include: 'SOME_VALUE',
+						include: 'SOME_VALUE' as any,
 					},
 				],
 			})
@@ -139,7 +143,7 @@ describe('arXiv search tests', () => {
 				searchQueryParams: [
 					{
 						include: [{name: 'GAN'}],
-						exclude: 'SOME_VALUE',
+						exclude: 'SOME_VALUE' as any,
 					},
 				],
 			})
@@ -172,7 +176,7 @@ describe('arXiv search tests', () => {
 			search({
 				searchQueryParams: [
 					{
-						include: [{name: 123}],
+						include: [{name: 123 as any}],
 					},
 				],
 			})
