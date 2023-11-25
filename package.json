@@ -29,13 +29,17 @@
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.10.0",
+    "@types/xml2js": "^0.4.14",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.1",
     "eslint-plugin-jest": "23.8.2",
     "eslint-plugin-node": "11.0.0",
     "eslint-plugin-prettier": "^2.6.0",
     "jest": "25.2.2",
-    "prettier": "1.16.4"
+    "prettier": "1.16.4",
+    "typescript": "^5.3.2"
   },
   "engines": {
     "node": ">=8.10.0"
