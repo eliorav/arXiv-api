@@ -1,4 +1,4 @@
-const {search} = require('./src');
+const {search} = require('./dist');
 
 module.exports = {
 	search,
