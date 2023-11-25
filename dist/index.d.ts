@@ -24,7 +24,7 @@ type SearchApiType = {
  * @param {number} maxResults - the number of results returned by the query.
  * @returns {Promise}
  */
-export declare function search({ searchQueryParams, sortBy, sortOrder, start, maxResults }: SearchApiType): Promise<{
+declare function search({ searchQueryParams, sortBy, sortOrder, start, maxResults }: SearchApiType): Promise<{
     id: string;
     title: string;
     summary: string;
@@ -34,4 +34,4 @@ export declare function search({ searchQueryParams, sortBy, sortOrder, start, ma
     updated: string;
     categories: any[];
 }[]>;
-export {};
+export default search;

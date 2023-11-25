@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("./constants");
 const globals_1 = require("@jest/globals");
@@ -28,13 +31,13 @@ globals_1.jest.mock('util', () => ({
     promisify: globals_1.jest.fn(() => mockXmlPromisify),
 }));
 // import later for mock
-const index_1 = require("./index");
+const index_1 = __importDefault(require("./index"));
 (0, globals_1.describe)('arXiv search tests', () => {
     (0, globals_1.beforeEach)(() => {
         mockAxiosGet.mockClear();
     });
     (0, globals_1.it)('should return results as expected - default values', async () => {
-        const results = await (0, index_1.search)({
+        const results = await (0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [{ name: 'RNN' }, { name: 'Deep learning' }],
@@ -49,7 +52,7 @@ const index_1 = require("./index");
         (0, globals_1.expect)(results).toMatchSnapshot();
     });
     (0, globals_1.it)('should return results as expected', async () => {
-        const results = await (0, index_1.search)({
+        const results = await (0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [{ name: 'RNN' }, { name: 'Deep learning' }],
@@ -66,7 +69,7 @@ const index_1 = require("./index");
         (0, globals_1.expect)(results).toMatchSnapshot();
     });
     (0, globals_1.it)('should return results as expected - with sortBy and sortOrder', async () => {
-        const results = await (0, index_1.search)({
+        const results = await (0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [{ name: 'RNN' }, { name: 'Deep learning' }],
@@ -85,7 +88,7 @@ const index_1 = require("./index");
         (0, globals_1.expect)(results).toMatchSnapshot();
     });
     (0, globals_1.it)('should throw error - unsupported sortBy', async () => {
-        await (0, globals_1.expect)((0, index_1.search)({
+        await (0, globals_1.expect)((0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [{ name: 'GAN' }],
@@ -95,7 +98,7 @@ const index_1 = require("./index");
         })).rejects.toMatchSnapshot();
     });
     (0, globals_1.it)('should throw error - unsupported sortOrder', async () => {
-        await (0, globals_1.expect)((0, index_1.search)({
+        await (0, globals_1.expect)((0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [{ name: 'GAN' }],
@@ -105,12 +108,12 @@ const index_1 = require("./index");
         })).rejects.toMatchSnapshot();
     });
     (0, globals_1.it)('should throw error - searchQueryParams is not an array', async () => {
-        await (0, globals_1.expect)((0, index_1.search)({
+        await (0, globals_1.expect)((0, index_1.default)({
             searchQueryParams: 'PARAMS',
         })).rejects.toMatchSnapshot();
     });
     (0, globals_1.it)('should throw error - include tags is not an array', async () => {
-        await (0, globals_1.expect)((0, index_1.search)({
+        await (0, globals_1.expect)((0, index_1.default)({
             searchQueryParams: [
                 {
                     include: 'SOME_VALUE',
@@ -119,7 +122,7 @@ const index_1 = require("./index");
         })).rejects.toMatchSnapshot();
     });
     (0, globals_1.it)('should throw error - exclude tags is not an array', async () => {
-        await (0, globals_1.expect)((0, index_1.search)({
+        await (0, globals_1.expect)((0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [{ name: 'GAN' }],
@@ -129,7 +132,7 @@ const index_1 = require("./index");
         })).rejects.toMatchSnapshot();
     });
     (0, globals_1.it)('should throw error - include tags empty', async () => {
-        await (0, globals_1.expect)((0, index_1.search)({
+        await (0, globals_1.expect)((0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [],
@@ -138,7 +141,7 @@ const index_1 = require("./index");
         })).rejects.toMatchSnapshot();
     });
     (0, globals_1.it)('should throw error - tag name is empty', async () => {
-        await (0, globals_1.expect)((0, index_1.search)({
+        await (0, globals_1.expect)((0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [{ name: '' }],
@@ -147,7 +150,7 @@ const index_1 = require("./index");
         })).rejects.toMatchSnapshot();
     });
     (0, globals_1.it)('should throw error - tag name is not string', async () => {
-        await (0, globals_1.expect)((0, index_1.search)({
+        await (0, globals_1.expect)((0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [{ name: 123 }],
@@ -156,7 +159,7 @@ const index_1 = require("./index");
         })).rejects.toMatchSnapshot();
     });
     (0, globals_1.it)('should throw error - unsupported tag prefix', async () => {
-        await (0, globals_1.expect)((0, index_1.search)({
+        await (0, globals_1.expect)((0, index_1.default)({
             searchQueryParams: [
                 {
                     include: [{ name: 'GAN', prefix: 'pre' }],

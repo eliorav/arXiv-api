@@ -26,7 +26,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.search = void 0;
 const axios_1 = __importDefault(require("axios"));
 const _ = __importStar(require("lodash"));
 const constants_1 = require("./constants");
@@ -111,4 +110,4 @@ async function search({ searchQueryParams, sortBy, sortOrder, start = 0, maxResu
     const parsedData = await parseStringPromisified(response.data);
     return _.get(parsedData, 'feed.entry', []).map(parseArxivObject);
 }
-exports.search = search;
+exports.default = search;

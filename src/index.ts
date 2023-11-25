@@ -95,7 +95,7 @@ function parseTags({ include, exclude = [] }: SearchQueryParams) {
  * @param {number} maxResults - the number of results returned by the query.
  * @returns {Promise}
  */
-export async function search({ searchQueryParams, sortBy, sortOrder, start = 0, maxResults = 10 }: SearchApiType) {
+async function search({ searchQueryParams, sortBy, sortOrder, start = 0, maxResults = 10 }: SearchApiType) {
     if (!Array.isArray(searchQueryParams)) {
         throw new Error('query param must be an array');
     }
@@ -110,3 +110,5 @@ export async function search({ searchQueryParams, sortBy, sortOrder, start = 0, 
     const parsedData = await parseStringPromisified(response.data);
     return _.get(parsedData, 'feed.entry', []).map(parseArxivObject);
 }
+
+export default search;

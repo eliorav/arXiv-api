@@ -32,7 +32,7 @@ jest.mock('util', () => ({
 }));
 
 // import later for mock
-import { search } from './index';
+import search from './index';
 
 describe('arXiv search tests', () => {
 	beforeEach(() => {
