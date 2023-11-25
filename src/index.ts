@@ -5,6 +5,7 @@ import util from 'util';
 import { parseString } from 'xml2js';
 
 const parseStringPromisified = util.promisify(parseString);
+
 type ArxivQueryType = {
   searchQuery: string;
   sortBy?: string;
@@ -28,8 +29,6 @@ type SearchApiType = {
   maxResults?: number;
 }
   
-
-
 const get_arxiv_url = ({ searchQuery, sortBy, sortOrder, start, maxResults}: ArxivQueryType) => {
   return `http://export.arxiv.org/api/query?search_query=${searchQuery}&start=${start}&max_results=${maxResults}${sortBy ? `&sortBy=${sortBy}` : ''}${sortOrder ? `&sortOrder=${sortOrder}` : ''}`;
 }
