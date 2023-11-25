@@ -1,25 +1,16 @@
 {
-    "plugins": ["jest", "node", "prettier"],
+    "plugins": ["jest", "node"],
     "extends": [
         "eslint:recommended",
-        "plugin:prettier/recommended",
-        "prettier/standard",
+        "prettier",
         "plugin:node/recommended",
         "plugin:jest/all"
     ],
     "parserOptions": {
-        "ecmaVersion": 2020
+      "ecmaVersion": 2020,
+      "sourceType": "module"
     },
     "rules": {
-         "prettier/prettier": ["error", {
-                "singleQuote": true,
-                "bracketSpacing": false,
-                "trailingComma": "es5",
-                "useTabs": true,
-                "printWidth": 120,
-                "endOfLine":"auto"
-            }
-        ],
         "jest/prefer-expect-assertions": "off",
         "jest/expect-expect": "off",
         "jest/no-hooks": "off",
