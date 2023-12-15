@@ -1,6 +1,6 @@
 {
   "name": "arxiv-api-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "node wrapper for arXiv api. typescript version",
   "main": "dist/index.js",
   "scripts": {
