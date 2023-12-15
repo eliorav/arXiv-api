@@ -1,5 +1,5 @@
 <p align="center">
-  <h3 align="center">arXiv-api</h3>
+  <h3 align="center">arXiv-api-ts</h3>
 
   <p align="center">
     A Javascript wrapper of arxiv api.
@@ -10,16 +10,16 @@
 ### Installation
 
 ```sh
-npm i arxiv-api
+npm i arxiv-api-ts
 ```
 
 ### Usage example
 
 #### Using async/await
 ```js
-const arxiv = require('arxiv-api');
+import search from "arXiv-api";
 
-const papers = await arxiv.search({
+const papers = await search({
 	searchQueryParams: [
 		{
 			include: [{name: 'RNN'}, {name: 'Deep learning'}],
@@ -38,10 +38,9 @@ console.log(papers);
 
 #### Using Promise
 ```js
-const arxiv = require('arxiv-api');
+import search from "arXiv-api";
 
-const papers = arxiv
-	.search({
+const papers = search({
 		searchQueryParams: [
 			{
 				include: [{name: 'RNN'}, {name: 'Deep learning'}],
@@ -68,7 +67,4 @@ const papers = arxiv
 * maxResults - The number of results returned by the query.
 * sortBy - Can be "relevance", "lastUpdatedDate", "submittedDate".
 * sortOrder - Can be either "ascending" or "descending".
-
-## Contact
-Elior Avraham – elior.av@gmail.com
 
