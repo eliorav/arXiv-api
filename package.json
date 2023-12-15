@@ -1,7 +1,7 @@
 {
-  "name": "arxiv-api",
-  "version": "1.1.0",
-  "description": "node wrapper for arXiv api",
+  "name": "arxiv-api-ts",
+  "version": "1.0.0",
+  "description": "node wrapper for arXiv api. typescript version",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest -u ./dist/index.test.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eliorav/arXiv-api.git"
+    "url": "git+https://github.com/isamu/arXiv-api-ts.git"
   },
   "keywords": [
     "arxiv",
@@ -21,9 +21,9 @@
   "author": "elior avraham",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eliorav/arXiv-api/issues"
+    "url": "https://github.com/isamu/arXiv-api-ts"
   },
-  "homepage": "https://github.com/eliorav/arXiv-api#readme",
+  "homepage": "https://github.com/isamu/arXiv-api-ts#readme",
   "dependencies": {
     "axios": "^1.6.2",
     "lodash": "^4.17.21",
