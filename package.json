@@ -1,12 +1,13 @@
 {
   "name": "arxiv-api-ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "node wrapper for arXiv api. typescript version",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest -u ./dist/index.test.js",
     "test:coverage": "jest ./dist/index.test.js --coverage",
     "build": "tsc",
+    "format": "prettier --write 'src/**/*.ts'",
     "lint": "eslint 'src/**/*.ts' --quiet"
   },
   "repository": {
