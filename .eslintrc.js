@@ -1,36 +1,36 @@
 module.exports = {
-  "env": {
-    "es2021": true,
-    "node": true
+  env: {
+    es2021: true,
+    node: true,
   },
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["jest", "node", "@typescript-eslint"],
-  "extends": [
+  parser: "@typescript-eslint/parser",
+  plugins: ["jest", "node", "@typescript-eslint"],
+  extends: [
     "eslint:recommended",
     "prettier",
     "plugin:node/recommended",
-    "plugin:jest/all"
+    "plugin:jest/all",
   ],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  "settings": {
-    "node": {
-      "tryExtensions": [".ts", ".js", ".json", ".node"]
-    }
+  settings: {
+    node: {
+      tryExtensions: [".ts", ".js", ".json", ".node"],
+    },
   },
-  "rules": {
+  rules: {
     "jest/no-untyped-mock-factory": "off",
     "jest/unbound-method": "off",
     "node/no-extraneous-import": "off",
     "node/no-unsupported-features/es-syntax": [
       "error",
-      { ignores: ["modules"] }
+      { ignores: ["modules"] },
     ],
     "jest/prefer-expect-assertions": "off",
     "jest/expect-expect": "off",
     "jest/no-hooks": "off",
-    "jest/prefer-inline-snapshots": "off"
-  }
-}
+    "jest/prefer-inline-snapshots": "off",
+  },
+};

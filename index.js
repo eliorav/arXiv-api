@@ -1,5 +1,5 @@
-const {search} = require('./dist');
+const { search } = require("./dist");
 
 module.exports = {
-	search,
+  search,
 };

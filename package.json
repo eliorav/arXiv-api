@@ -7,7 +7,7 @@
     "test": "jest -u ./dist/index.test.js",
     "test:coverage": "jest ./dist/index.test.js --coverage",
     "build": "tsc",
-    "format": "prettier --write 'src/**/*.ts'",
+    "format": "prettier --write '{*,src/**/*}.{js,ts}'",
     "lint": "eslint 'src/**/*.ts' --quiet"
   },
   "repository": {
