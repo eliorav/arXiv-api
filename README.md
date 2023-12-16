@@ -17,7 +17,7 @@ npm i arxiv-api-ts
 
 #### Using async/await
 ```js
-import search from "arXiv-api";
+import search from "arXiv-api-ts";
 
 const papers = await search({
 	searchQueryParams: [
@@ -38,7 +38,7 @@ console.log(papers);
 
 #### Using Promise
 ```js
-import search from "arXiv-api";
+import search from "arXiv-api-ts";
 
 const papers = search({
 		searchQueryParams: [
