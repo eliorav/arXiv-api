@@ -1,16 +1,17 @@
-<p align="center">
-  <h3 align="center">arXiv-api-ts</h3>
+# arXiv-api-ts
 
-  <p align="center">
-    A Javascript wrapper of arxiv api.
-  </p>
-</p>
+A Javascript wrapper for the arXiv API.
 
 ## Getting Started
+
 ### Installation
 
 ```sh
 npm i arxiv-api-ts
+
+# or
+
+yarn add arxiv-api-ts
 ```
 
 ### Usage example

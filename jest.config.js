@@ -1,3 +1,7 @@
 module.exports = {
-  verbose: true,
+    verbose: true,
+    testEnvironment: 'node',
+    transform: {
+        '^.+\\.ts?$': 'ts-jest',
+    },
 };
