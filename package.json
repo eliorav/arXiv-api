@@ -24,17 +24,17 @@
   },
   "homepage": "https://github.com/eliorav/arXiv-api#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.30.3",
     "lodash": "^4.17.21",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.5.0"
   },
   "devDependencies": {
-    "eslint": "6.8.0",
+    "eslint": "10.1.0",
     "eslint-config-prettier": "6.10.1",
     "eslint-plugin-jest": "23.8.2",
     "eslint-plugin-node": "11.0.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "jest": "25.2.2",
+    "jest": "30.3.0",
     "prettier": "1.16.4"
   },
   "engines": {
